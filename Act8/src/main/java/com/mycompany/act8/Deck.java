@@ -27,9 +27,9 @@ public class Deck {
         this.numCard = numCard;
     }
 
-    public String mezclar() {
+    public void shuffle() {
         Collections.shuffle(card);
-        return "mezclando...";
+        System.out.println("Se mezcló el Deck");
     }
     
     public void head() {
