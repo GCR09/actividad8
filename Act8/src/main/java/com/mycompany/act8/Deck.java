@@ -32,23 +32,29 @@ public class Deck {
         System.out.println("Se mezcló el Deck");
     }
     
-    public void head() {
+    public void head() throws Exception{
         System.out.println(card.get(0).getAll());
         card.remove(0);
         numCard-=1;
         System.out.println("Quedan: "+numCard);
+        if(numCard==0){
+            throw new Exception("Se han agotado las cartas");
+        }
     }
     
-    public void pick() {
+    public void pick() throws Exception{
         Random randomNumbers = new Random();
         int aleatorio = randomNumbers.nextInt(numCard);
         System.out.println(card.get(aleatorio).getAll());
         card.remove(aleatorio);
         numCard-=1;
         System.out.println("Quedan: "+numCard);
+        if(numCard==0){
+            throw new Exception("Se han agotado las cartas");
+        }
     }
     
-    public void hand() {
+    public void hand() throws Exception{
         int i = 1;
         while(i <= 5) {
         Random randomNumbers = new Random();
@@ -56,8 +62,12 @@ public class Deck {
         System.out.println(card.get(aleatorio).getAll());
         card.remove(aleatorio);
         numCard-=1;
-        i++;
+        if(numCard==0){
+            System.out.println("Quedan: "+numCard);
+            throw new Exception("Se han agotado las cartas");
         }
+        i++;
+        } 
         System.out.println("Quedan: "+numCard);
     }
     
